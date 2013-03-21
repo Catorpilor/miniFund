@@ -1,0 +1,11 @@
+<% if(userlist.length) { %>
+    <select class="multiselect" multiple="multiple" name="selectedusernames">
+        <% userlist.forEach(function(puser){ %>
+            <% if(puser.name == locals.user.name) { %>
+                <option value="<%= puser.name %>" selected> <%= puser.name %> </option> 
+            <% } else { %>
+                <option value="<%= puser.name %>"><%= puser.name %></option>
+            <%}%>
+        <% }) %>
+    </select>
+<% } %> 

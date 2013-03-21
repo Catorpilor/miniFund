@@ -1,0 +1,26 @@
+<% if (events.length) { %>
+    <% events.forEach(function(ievent,index) { %>
+        <div class="controls controls-row">
+            <span class="text-success">
+                 您 
+            </span>
+            <span class="text-info inline">于 <span><em><%= ievent.time %></em></span> 向 
+            <span><strong>
+                <% if(username == ievent.destaccount) { %>
+                    自己的账户
+                <%}else{%>
+                    <%= ievent.destaccount %>
+                <%}%>
+            </strong></span> 充值 <span><strong class="text-error"><%= ievent.amount %></strong></span></span>
+            <% if(ievent.status == 'SUCCESS') { %>
+                <span class="text-success inline text-right">
+                    <strong>成功</strong>
+                </span> 
+            <%}else { %>
+                <span class="text-error inline text-right">
+                    <strong>待确认</strong>
+                </span>
+            <%}%>
+        </div>
+    <%})%>
+<% } %>

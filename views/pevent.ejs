@@ -1,0 +1,36 @@
+<form class="form-horizontal" method="post">
+	<fieldset>
+		<legend>发布信息</legend>
+		<div class="control-group">
+			<label class="control-label" for="location">地点</label>
+			<div class="controls">
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-home"></i></span>
+					<input type="text" class="input-xlarge" id="location" name="location" placeholder="请输入地点">
+				</div>
+			</div>
+        </div>
+        <div class="control-group">
+			<label class="control-label" for="cost">花费</label>
+			<div class="controls">
+				<div class="input-prepend">
+					<span class="add-on">$</span>
+					<input type="text" class="input-xlarge" id="cost" name="cost">
+				</div>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="seluser">选择用户</label>
+			<div class="controls">
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-user"></i></span>
+                    <%- partial('groupmemlist', {grouplist:group.memlist}) %>
+				</div>
+			</div>
+		</div>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">发布</button>
+			<input type="button" class="btn btn-error" onClick="location.href='/'" value="取消">
+		</div>
+	</fieldset>
+</form>

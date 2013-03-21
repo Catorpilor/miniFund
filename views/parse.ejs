@@ -1,0 +1,5 @@
+<% if( lists.length ) { %>
+    <% lists.forEach(function(name){ %>
+        <a href="/u/<%= name %>"><%= name %></a><span> , </span>
+    <% }) %>
+<%}%>

@@ -1,0 +1,26 @@
+<form class="form-horizontal" method="post">
+	<fieldset>
+		<legend>创建用户组</legend>
+		<div class="control-group">
+			<label class="control-label" for="groupname">组名</label>
+			<div class="controls">
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-home"></i></span>
+					<input type="text" class="input-xlarge" id="groupname" name="groupname" placeholder="请输入组名">
+				</div>
+			</div>
+        </div>
+        <div class="control-group">
+			<label class="control-label" for="seluser">选择用户</label>
+			<div class="controls">
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-user"></i></span>
+                    <% include userlist %>
+				</div>
+			</div>
+		</div>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">保存</button>
+		</div>
+	</fieldset>
+</form>

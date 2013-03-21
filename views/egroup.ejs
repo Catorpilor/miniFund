@@ -1,0 +1,42 @@
+<div class="mini-layout">
+	<div class="mini-layout-body">
+		<table class="table table-condensed">
+			<thead>
+				<tr class="info">
+					<th>#</th>
+					<th>姓名</th>
+					<th>当前余额</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% group.memlist.forEach(function(pmem,index){ %>
+					<tr class="warning">
+						<td><%= index+1 %></td>
+						<td><%= pmem.name %></td>
+						<td><%= pmem.fund %></td>
+					</tr> 
+				<% }) %>
+			</tbody>
+		</table>
+	</div>
+</div>
+<hr />
+<% if(fundevents.length) { %> 
+	<form class="form-horizontal" method="post">
+		<fieldset>
+			<legend>充值申请</legend>
+			<div class="control-group">
+				<label class="control-label" for="username">用户名</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-user"></i></span>
+						<%- partial('fundmemlist',{fundevents:fundevents}) %>
+					</div>
+				</div>
+	        </div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">确认</button>
+			</div>
+		</fieldset>
+	</form>
+<% } %>

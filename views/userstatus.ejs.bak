@@ -1,0 +1,36 @@
+<% if( groups.length ) { %>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>群组名</th>
+                <th>创建者</th>
+                <th>余额</th>
+                <th>动作</th>
+            </tr>
+            <tbody>
+                <% groups.forEach(function(group,index){ %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= group.groupname %></td>
+                        <td><%= group.author %></td>
+                        <td><%= group.fund %></td>
+                        <td>
+                            <% if (group.author == locals.user.name ) { %>
+                                <div class="btn-group">
+                                    <input class="btn btn-primary" type="button" onClick="location.href='/egroup'" value="编辑组"> 
+                                    <input class="btn btn-primary" type="button" onClick="location.href='/pevent'" value="更新信息"> 
+                                </div>
+                            <%} else { %>
+                                <div class="btn-group">
+                                    <input class="btn btn-primary" type="button" onClick="location.href='/ufund'" value="充值"> 
+                                    <input class="btn btn-error" type="button" onClick="location.href='/qgroup'" value="退出"> 
+                                </div>
+                            <%}%>
+                        </td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </thead>
+    </table>
+<%}%>

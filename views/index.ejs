@@ -1,0 +1,23 @@
+<% if( !locals.user ) { %>
+    <div class="hero-unit">
+	    <h1> 欢迎来到 MiniFund</h1>
+	    <p>MiniFund 是一个基于 Nodejs的简单的计费系统 </p>
+	    <p>
+		    <a class="btn btn-primary btn-large" href="/login">登录</a>
+		    <a class="btn btn-large" href="/reg">立即注册</a>
+	    </p>
+    </div>
+<% } else { %>
+    <div class="mini-layout">
+        <div class="mini-layout-body">
+            <h3> <%= users.name %>, 您的账户余额为: <strong class="text-error"><%= users.curfund %></strong></h3>
+            <%- partial('userstatus', {groups:groups,username:users.name,bflag:bflag,fundevents:fundevents}) %>
+        </div>
+    </div>
+    <hr />
+    <div class="container">
+        <% include cureventlist %>
+    </div>
+<%}%>
+
+

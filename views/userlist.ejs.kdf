@@ -1,0 +1,7 @@
+<% if(userlist.length) { %>
+    <select class="multiselect" multiple="multiple">
+        <% for(var i =0; i<userlist.length; ++i) { %>
+               <option value="<%= userlist[i].name %>"><%= localuser.name %></option>
+        <%}%>
+    </select>
+<% } %> 

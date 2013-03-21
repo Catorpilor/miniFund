@@ -1,0 +1,21 @@
+<div class="mini-layout">
+    <div class="mini-layout-body">
+        <h3> <%= users.name %>
+        <% if(aflag) { %>
+            , 您的账户金额为: <strong class="text-error"><%= users.curfund %></strong>
+        <%} %>
+        </h3>
+        <%- partial('userstatus', {groups:groups,username:users.name,bflag:bflag}) %>
+    </div>
+</div>
+<hr />
+<div class="container">
+    <div class="row-fluid">
+        <div class="span6">
+            <%- partial('usercostevents',{events:cevents,username:users.name}) %>
+        </div>
+        <div class="span6">
+            <%- partial('userfundevents',{events:fevents,username:users.name}) %>
+        </div>
+    </div>
+</div>

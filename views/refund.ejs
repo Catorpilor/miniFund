@@ -1,0 +1,34 @@
+<form class="form-horizontal" method="post">
+	<fieldset>
+		<legend>充值</legend>
+        <div class="control-group">
+            <label = class="control-label" for="funduser">用户</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>
+                        <select name="funddest">
+                            <option value="<%= pdest %>"><%= pdest %></option>
+                        </select>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+			<label class="control-label" for="pfundmonty">充值金额</label>
+            <div class="controls">
+			    <div class="input-prepend">
+				    <span class="add-on">$</span>
+				    <select name="fundamount">
+                        <option value="200">200</option>
+                        <option value="100">100</option>
+                        <option value="50">50</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+			</div>
+        </div>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-success">确定</button>
+		</div>
+	</fieldset>
+</form>

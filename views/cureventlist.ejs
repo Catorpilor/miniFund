@@ -1,0 +1,11 @@
+<% if (events.length) { %>
+    <% events.forEach(function(ievent,index) { %>
+        <div class="controls controls-row">
+            <span class="muted">
+                <%- partial('parse',{lists:ievent.envolvedp,username:locals.user.name,etime:ievent.time}) %> 
+            </span>
+            <span class="muted inline">于 <span><em><%= ievent.time.toDateString() %> <%= ievent.time.toTimeString().substring(0,9) %></em></span> 在 <span><strong><%= ievent.location %></strong></span> 花费 <span><strong class="text-error"><%= ievent.cost %></strong></span></span>
+        </div>
+        <p class="text-right"> <span><em>Post By</em></span> <span><strong class="text-info"><%= ievent.username %></strong></span></p>
+    <%})%>
+<% } %>

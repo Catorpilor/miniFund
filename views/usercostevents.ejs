@@ -1,0 +1,15 @@
+<% if (events.length) { %>
+    <% events.forEach(function(ievent,index) { %>
+        <div class="controls controls-row">
+            <span class="text-success">
+                 您<span>
+                 <strong>
+                    <% if(ievent.envolvedp.length > 1) { %>
+                        与其他<%= ievent.envolvedp.length-1 %> 人
+                    <%}%>
+                </strong></span>
+            </span>
+            <span class="text-info inline">于 <span><em><%= ievent.time.toDateString() %> <%= ievent.time.toTimeString().substring(0,9) %></em></span> 在 <span><strong><%= ievent.location %></strong></span> 消费 <span><strong class="text-error"><%= Math.round(ievent.cost/ievent.envolvedp.length*10)/10 %></strong></span></span>
+        </div>
+    <%})%>
+<% } %>

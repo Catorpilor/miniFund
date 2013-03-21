@@ -1,0 +1,7 @@
+<% if(grouplist.length) { %>
+    <select class="multiselect" multiple="multiple" name="selectedgroups">
+        <% grouplist.forEach(function(puser){ %>
+        	<option value="<%= puser.groupname %>"><%= puser.groupname %><span>  组长: <%= puser.author %></span><span> (<%= puser.memlist.length %>人) </span></option>
+        <% }) %>
+    </select>
+<% } %>

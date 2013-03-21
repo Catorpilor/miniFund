@@ -1,0 +1,7 @@
+<% if(fundevents.length) { %>
+    <select class="multiselect" multiple="multiple" name="fundmemnames">
+        <% fundevents.forEach(function(puser){ %>
+        	<option value="<%= puser.username %>,<%= puser.amount %>"><%= puser.username %><span class="text-error"> + </span><%= puser.amount %></option>
+        <% }) %>
+    </select>
+<% } %> 

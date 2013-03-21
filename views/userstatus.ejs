@@ -1,0 +1,54 @@
+<% if( groups.length ) { %>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>群组名</th>
+                <th>创建者</th>
+                <th>余额</th>
+                <th>个人余额</th>
+                <% if(bflag) { %>
+                    <th>动作</th>
+                <%}%>
+            </tr>
+            <tbody>
+                <% groups.forEach(function(group,index){ %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= group.groupname %></td>
+                        <td><%= group.author %></td>
+                        <td><%= group.fund %></td>
+                        <td>
+                            <% group.memlist.forEach(function( user) { %>
+                                <% if(user.name == username) { %> 
+                                    <%= user.fund %>
+                                <%}%>
+                            <%})%>
+                        </td>
+                        <% if(bflag) { %> 
+                            <td>
+                                <% if (group.author == username ) { %>
+                                    <div class="btn-group">
+                                        <input class="btn btn-primary" type="button" onClick="location.href='/u/<%= username %>/egroup/<%= group.groupname %>'" value="编辑组"> 
+                                        <input class="btn btn-primary" type="button" onClick="location.href='/u/<%= username %>/pevent/<%= group.groupname %>'" value="更新信息"> 
+                                        <input class="btn btn-primary" type="button" onClick="location.href='/u/<%= username %>/ufund/<%= group.groupname %>'" value="充值"> 
+                                    </div>
+                                <%} else { %>
+                                    <div class="btn-group">
+                                        <input class="btn btn-primary" type="button" onClick="location.href='/u/<%= username %>/ufund/<%= group.groupname %>'" value="充值"> 
+                                        <input class="btn btn-error" type="button" onClick="location.href='/u/<%= username %>/qgroup/<%= group.groupname %>'" value="退出"> 
+                                    </div>
+                                <%}%>
+                            </td>
+                        <%}%>
+                    </tr>
+                <%})%>
+            </tbody>
+        </thead>
+    </table>
+<%} else { %>
+    <h4>亲，你现在还木有找到组织。快去
+        <a class="btn btn-primary btn-large" href="/jgroup">加入组</a>或
+        <a class="btn btn-large" href="/cgroup">创建组</a> 来加入组织吧！
+    </h4>
+<% } %>
