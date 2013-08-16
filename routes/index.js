@@ -48,6 +48,10 @@ module.exports = function(app) {
     });
     app.post('/login',checkNotLogin);
     app.post('/login',function(req,res){
+	if(!req.body.passwod || !req.body.username){
+		req.flash('error','cant be empty');
+		return res.redirect('/');
+	}
         var md5 = crypto.createHash('md5');
         var password = md5.update(req.body.password).digest('base64');
         User.get(req.body.username,function(err,user){
@@ -86,6 +90,10 @@ module.exports = function(app) {
             req.flash('error', 'Password mismatch');
             return res.redirect('/reg');
         }
+	if( req.body.username === null || req.body.email === null || req.body['password-repeat'] === null || req.body.password === null){
+		req.flash('error','cant be empty');
+		return res.redirct('/');
+	}
         var md5 = crypto.createHash('md5');
         var password = md5.update(req.body.password).digest('base64');
 
