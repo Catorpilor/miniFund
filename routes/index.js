@@ -90,9 +90,12 @@ module.exports = function(app) {
             req.flash('error', 'Password mismatch');
             return res.redirect('/reg');
         }
-	if( req.body.username === null || req.body.email === null || req.body['password-repeat'] === null || req.body.password === null){
+	console.log(123);
+	console.log(req.body.username,req.body.email);
+
+	if( req.body.username === '' || req.body.email === '' || req.body['password-repeat'] === '' || req.body.password === ''){
 		req.flash('error','cant be empty');
-		return res.redirct('/');
+		return res.redirect('/reg');
 	}
         var md5 = crypto.createHash('md5');
         var password = md5.update(req.body.password).digest('base64');
